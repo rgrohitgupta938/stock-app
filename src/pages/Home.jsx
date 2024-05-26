@@ -1,9 +1,11 @@
 import React from "react";
 
 const Home = () => {
-  return <div className="container">
-    
-  </div>;
+  return (
+    <div className="container">
+      <h1>CI/Cd are active</h1>
+    </div>
+  );
 };
 
 export default Home;
