@@ -1,21 +1,10 @@
 import React, { useEffect } from "react";
 import auth from "../services/authservices";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const user = auth.getUser();
   console.log(user);
-  const key = "4c02abe3-079b-4beb-b915-247be4ab2fd9";
-  const url = encodeURIComponent("http://localhost:5173/");
-
-  const handleLogin = () => {
-    const authorizationUrl = `https://api.upstox.com/v2/login/authorization/dialog?response_type=code&client_id=${key}&redirect_uri=${url}`;
-    window.location.href = authorizationUrl;
-  };
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-    console.log(code);
-  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary ps-5 pe-5">
@@ -64,9 +53,9 @@ const Navbar = () => {
               </li>
             ) : (
               <li className="nav-item">
-                <a className="nav-link" href="#" onClick={handleLogin}>
+                <Link className="nav-link" to="/login">
                   Login
-                </a>
+                </Link>
               </li>
             )}
           </ul>
